@@ -1488,18 +1488,15 @@ namespace Material_Range_Bar_Wrapper.Views
                 var leftThumbXDistance = this._mIsRangeBar ? Math.Abs(this._mLeftThumb.GetX() - x) : 0;
                 var rightThumbXDistance = Math.Abs(this._mRightThumb.GetX() - x);
 
-                if (leftThumbXDistance < rightThumbXDistance)
-                {
-                    if (this._mIsRangeBar)
-                    {
-                        this.MovePin(this._mLeftThumb, x);
-                        this.ReleasePin(this._mLeftThumb);
-                    }
-                }
-                else
+                if (this._mIsRangeBar == false || rightThumbXDistance < leftThumbXDistance)
                 {
                     this.MovePin(this._mRightThumb, x);
                     this.ReleasePin(this._mRightThumb);
+                }
+                else
+                {
+                    this.MovePin(this._mLeftThumb, x);
+                    this.ReleasePin(this._mLeftThumb);
                 }
 
                 // Get the updated nearest tick marks for each thumb.
