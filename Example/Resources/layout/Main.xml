@@ -14,7 +14,7 @@
     custom:tickInterval="20"
     custom:tickEnd="300"
     android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"/>
+    android:layout_marginRight="16dp" />
 
   <Material_Range_Bar_Wrapper.Views.RangeBar
     xmlns:custom="http://schemas.android.com/apk/res-auto"
@@ -26,6 +26,6 @@
     custom:tickInterval="20"
     custom:tickEnd="300"
     android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"/>
+    android:layout_marginRight="16dp" />
 
 </LinearLayout>

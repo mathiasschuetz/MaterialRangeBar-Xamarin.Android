@@ -30,10 +30,8 @@ namespace Example
         public void OnRangeChangeListener(RangeBar rangeBar, int leftPinIndex, int rightPinIndex, string leftPinValue,
             string rightPinValue)
         {
-
         }
 
         #endregion
     }
 }
-
