@@ -16,9 +16,9 @@ using Android.Views;
 namespace Material_Range_Bar_Wrapper
 {
     /// <summary>
-    /// Helper enum class for transforming a measureSpec mode integer value into a
-    /// human-readable String. The human-readable String is simply the name of the
-    /// enum value.
+    ///     Helper enum class for transforming a measureSpec mode integer value into a
+    ///     human-readable String. The human-readable String is simply the name of the
+    ///     enum value.
     /// </summary>
     public class MeasureSpecMode
     {
@@ -44,7 +44,7 @@ namespace Material_Range_Bar_Wrapper
         #region methods
 
         /// <summary>
-        /// Gets the int value associated with this mode.
+        ///     Gets the int value associated with this mode.
         /// </summary>
         /// <returns>the int value associated with this mode</returns>
         public int GetModeValue()
@@ -53,10 +53,12 @@ namespace Material_Range_Bar_Wrapper
         }
 
         /// <summary>
-        /// Gets the MeasureSpecMode value that corresponds with the given
+        ///     Gets the MeasureSpecMode value that corresponds with the given
         ///     measureSpec int value.
         /// </summary>
-        /// <param name="measureSpec">the measure specification passed by the platform to <see cref="View.OnMeasure(int, int)"/></param>
+        /// <param name="measureSpec">
+        ///     the measure specification passed by the platform to <see cref="View.OnMeasure(int, int)" />
+        /// </param>
         /// <returns>the MeasureSpecMode that matches with that measure spec</returns>
         public static Android.Views.MeasureSpecMode GetMode(int measureSpec)
         {

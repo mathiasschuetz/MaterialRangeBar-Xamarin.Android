@@ -20,8 +20,8 @@ using Material_Range_Bar_Wrapper.Views;
 namespace Material_Range_Bar_Wrapper
 {
     /// <summary>
-    /// This class represents the underlying gray bar in the RangeBar (without the
-    /// thumbs).
+    ///     This class represents the underlying gray bar in the RangeBar (without the
+    ///     thumbs).
     /// </summary>
     public class Bar
     {
@@ -45,9 +45,9 @@ namespace Material_Range_Bar_Wrapper
         #endregion
 
         #region ctor
-        
+
         /// <summary>
-        /// Bar constructor
+        ///     Bar constructor
         /// </summary>
         /// <param name="context">the context</param>
         /// <param name="x">the start x co-ordinate</param>
@@ -96,18 +96,18 @@ namespace Material_Range_Bar_Wrapper
         #endregion
 
         #region methods
-        
+
         /// <summary>
-        /// Draws the bar on the given Canvas.
+        ///     Draws the bar on the given Canvas.
         /// </summary>
-        /// <param name="canvas">Canvas to draw on; should be the Canvas passed into <see cref="View.OnDraw"/></param>
+        /// <param name="canvas">Canvas to draw on; should be the Canvas passed into <see cref="View.OnDraw" /></param>
         public void Draw(Canvas canvas)
         {
             canvas.DrawLine(this._leftX, this._y, this._rightX, this._y, this._barPaint);
         }
 
         /// <summary>
-        /// Get the x-coordinate of the left edge of the bar.
+        ///     Get the x-coordinate of the left edge of the bar.
         /// </summary>
         /// <returns>x-coordinate of the left edge of the bar</returns>
         public float GetLeftX()
@@ -116,7 +116,7 @@ namespace Material_Range_Bar_Wrapper
         }
 
         /// <summary>
-        /// Get the x-coordinate of the right edge of the bar.
+        ///     Get the x-coordinate of the right edge of the bar.
         /// </summary>
         /// <returns>x-coordinate of the right edge of the bar</returns>
         public float GetRightX()
@@ -125,7 +125,7 @@ namespace Material_Range_Bar_Wrapper
         }
 
         /// <summary>
-        /// Gets the x-coordinate of the nearest tick to the given x-coordinate.
+        ///     Gets the x-coordinate of the nearest tick to the given x-coordinate.
         /// </summary>
         /// <param name="thumb">the thumb to find the nearest tick for</param>
         /// <returns>the x-coordinate of the nearest tick</returns>
@@ -137,18 +137,17 @@ namespace Material_Range_Bar_Wrapper
         }
 
         /// <summary>
-        /// Gets the zero-based index of the nearest tick to the given thumb.
+        ///     Gets the zero-based index of the nearest tick to the given thumb.
         /// </summary>
         /// <param name="thumb">the Thumb to find the nearest tick for</param>
         /// <returns>the zero-based index of the nearest tick</returns>
         public int GetNearestTickIndex(PinView thumb)
         {
-
-            return (int)((thumb.GetX() - this._leftX + this._tickDistance / 2f) / this._tickDistance);
+            return (int) ((thumb.GetX() - this._leftX + this._tickDistance / 2f) / this._tickDistance);
         }
 
         /// <summary>
-        /// Set the number of ticks that will appear in the RangeBar.
+        ///     Set the number of ticks that will appear in the RangeBar.
         /// </summary>
         /// <param name="tickCount">tickCount the number of ticks</param>
         public void SetTickCount(int tickCount)

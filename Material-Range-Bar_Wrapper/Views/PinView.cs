@@ -25,8 +25,8 @@ using Material_Range_Bar_Wrapper.Interfaces;
 namespace Material_Range_Bar_Wrapper.Views
 {
     /// <summary>
-    /// Represents a thumb in the RangeBar slider. This is the handle for the slider
-    /// that is pressed and slid.
+    ///     Represents a thumb in the RangeBar slider. This is the handle for the slider
+    ///     that is pressed and slid.
     /// </summary>
     public class PinView : View
     {
@@ -312,7 +312,7 @@ namespace Material_Range_Bar_Wrapper.Views
         }
 
         /// <summary>
-        /// Sets the state of the pin to pressed
+        ///     Sets the state of the pin to pressed
         /// </summary>
         public void Press()
         {
@@ -398,7 +398,7 @@ namespace Material_Range_Bar_Wrapper.Views
         }
 
         /// <summary>
-        /// Set text size based on available pin width.
+        ///     Set text size based on available pin width.
         /// </summary>
         /// <param name="paint"></param>
         /// <param name="text"></param>

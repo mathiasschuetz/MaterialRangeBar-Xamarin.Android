@@ -5,4 +5,4 @@
         android:fromDegrees="45"
         android:drawablePadding="20dp"
         android:toDegrees="45"
-        android:visible="true"/>
+        android:visible="true" />

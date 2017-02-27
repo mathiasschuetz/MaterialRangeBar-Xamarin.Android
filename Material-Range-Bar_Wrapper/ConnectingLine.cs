@@ -19,7 +19,7 @@ using Material_Range_Bar_Wrapper.Views;
 namespace Material_Range_Bar_Wrapper
 {
     /// <summary>
-    /// Class representing the blue connecting line between the two thumbs.
+    ///     Class representing the blue connecting line between the two thumbs.
     /// </summary>
     public class ConnectingLine
     {
@@ -58,7 +58,7 @@ namespace Material_Range_Bar_Wrapper
         #region methods
 
         /// <summary>
-        /// Draw the connecting line between the two thumbs in rangebar.
+        ///     Draw the connecting line between the two thumbs in rangebar.
         /// </summary>
         /// <param name="canvas">the Canvas to draw to</param>
         /// <param name="leftThumb">the left thumb</param>
@@ -69,7 +69,7 @@ namespace Material_Range_Bar_Wrapper
         }
 
         /// <summary>
-        /// Draw the connecting line between for single slider.
+        ///     Draw the connecting line between for single slider.
         /// </summary>
         /// <param name="canvas">the Canvas to draw to</param>
         /// <param name="leftMargin">the right thumb</param>
