@@ -1207,11 +1207,11 @@ namespace Material_Range_Bar_Wrapper.Views
                     this._mTickColor = this._mActiveTickColor;
                 }
 
+                this._enabled = value;
+
                 this.CreateBar();
                 this.CreatePins();
                 this.CreateConnectingLine();
-
-                this._enabled = value;
             }
         }
 
@@ -1346,17 +1346,23 @@ namespace Material_Range_Bar_Wrapper.Views
         {
             var ctx = this.Context;
             var yPos = this.GetYPos();
+            var expandedPinRadius = 0.0f;
+
+            if (this.Enabled)
+            {
+                expandedPinRadius = this._mExpandedPinRadius / this.Resources.DisplayMetrics.Density;
+            }
 
             if (this._mIsRangeBar)
             {
                 this._mLeftThumb = new PinView(ctx);
-                this._mLeftThumb.Init(ctx, yPos, 0, this._mPinColor, this._mTextColor, this._mCircleSize,
-                    this._mCircleColor, this._mMinPinFont, this._mMaxPinFont, false);
+                this._mLeftThumb.Init(ctx, yPos, expandedPinRadius, this._mPinColor, this._mTextColor, this._mCircleSize,
+                    this._mCircleColor, this._mMinPinFont, this._mMaxPinFont, this._mArePinsTemporary);
             }
             this._mRightThumb = new PinView(ctx);
             this._mRightThumb
-                .Init(ctx, yPos, 0, this._mPinColor, this._mTextColor, this._mCircleSize, this._mCircleColor,
-                    this._mMinPinFont, this._mMaxPinFont, false);
+                .Init(ctx, yPos, expandedPinRadius, this._mPinColor, this._mTextColor, this._mCircleSize, this._mCircleColor,
+                    this._mMinPinFont, this._mMaxPinFont, this._mArePinsTemporary);
 
             var marginLeft = this.GetMarginLeft();
             var barLength = this.GetBarLength();
