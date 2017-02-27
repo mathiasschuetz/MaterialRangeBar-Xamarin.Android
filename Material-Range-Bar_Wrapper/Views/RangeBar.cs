@@ -1486,13 +1486,13 @@ namespace Material_Range_Bar_Wrapper.Views
                 {
                     if (this._mIsRangeBar)
                     {
-                        this._mLeftThumb.SetX(x);
+                        this.MovePin(this._mLeftThumb, x);
                         this.ReleasePin(this._mLeftThumb);
                     }
                 }
                 else
                 {
-                    this._mRightThumb.SetX(x);
+                    this.MovePin(this._mRightThumb, x);
                     this.ReleasePin(this._mRightThumb);
                 }
 
