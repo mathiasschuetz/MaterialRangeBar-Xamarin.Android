@@ -1650,12 +1650,8 @@ namespace Material_Range_Bar_Wrapper.Views
                 : (tickIndex *
                    this._mTickInterval)
                   + this._mTickStart;
-            string xValue;
-            if (this._mTickMap.TryGetValue(tickValue, out xValue))
-                return this._mPinTextFormatter.GetText(xValue);
-
-            xValue = tickValue.ToString("F");
-            return this._mPinTextFormatter.GetText(xValue);
+            
+            return this._mPinTextFormatter.GetText(tickValue);
         }
 
         /// <summary>
@@ -1682,9 +1678,9 @@ namespace Material_Range_Bar_Wrapper.Views
 
         #region RangeBar.IPinTextFormatter
 
-        public string GetText(string value)
+        public string GetText(float value)
         {
-            return value.Length > 4 ? value.Substring(0, 4) : value;
+            return value.ToString("N");
         }
 
         #endregion

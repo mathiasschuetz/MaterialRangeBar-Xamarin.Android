@@ -2,6 +2,6 @@
 {
     public interface IPinTextFormatter
     {
-        string GetText(string value);
+        string GetText(float value);
     }
 }
