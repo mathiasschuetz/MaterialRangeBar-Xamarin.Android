@@ -386,7 +386,7 @@ namespace Material_Range_Bar_Wrapper.Views
                 }
 
                 this.CalibrateTextSize(this._textPaint, text, this._bounds.Width());
-                //this._textPaint.SetTextBounds(text, 0, text.Length, this._bounds);
+                this._textPaint.GetTextBounds(text, 0, text.Length, this._bounds);
                 this._textPaint.TextAlign = Paint.Align.Center;
                 this._pin.SetColorFilter(this._pinFilter);
                 this._pin.Draw(canvas);
