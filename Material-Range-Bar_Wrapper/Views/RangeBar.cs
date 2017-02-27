@@ -54,6 +54,7 @@ namespace Material_Range_Bar_Wrapper.Views
     ///     have
     ///     been moved.
     /// </summary>
+    // ReSharper disable once ClassNeverInstantiated.Global
     public class RangeBar : View, RangeBar.IPinTextFormatter
     {
         #region fields
@@ -75,10 +76,10 @@ namespace Material_Range_Bar_Wrapper.Views
         private static readonly Color DefaultTextColor = Color.White;
         private static readonly Color DefaultTickColor = Color.Black;
         // Corresponds to material indigo 500.
-        private static readonly Color DefaultPinColor = Color.ParseColor("0xff3f51b5");
+        private static readonly Color DefaultPinColor = Color.ParseColor("#ff3f51b5");
         private const float DefaultConnectingLineWeightPx = 4;
         // Corresponds to material indigo 500.
-        private static readonly Color DefaultConnectingLineColor = Color.ParseColor("ff3f51b5");
+        private static readonly Color DefaultConnectingLineColor = Color.ParseColor("#ff3f51b5");
         private const float DefaultExpandedPinRadiusDp = 12;
         private const float DefaultCircleSizeDp = 5;
         private const float DefaultBarPaddingBottomDp = 24;
@@ -131,11 +132,7 @@ namespace Material_Range_Bar_Wrapper.Views
         private bool _drawTicks = true;
         private bool _mArePinsTemporary = true;
         private IPinTextFormatter _mPinTextFormatter;
-        private bool _enabled;
-
-        #endregion
-
-        #region properties
+        private bool _enabled = true;
 
         #endregion
 
@@ -162,15 +159,6 @@ namespace Material_Range_Bar_Wrapper.Views
         }
 
         public RangeBar(Context context, IAttributeSet attrs, int defStyleAttr) : base(context, attrs, defStyleAttr)
-        {
-            this._mTickCount = (int) ((this._mTickEnd - this._mTickStart) / this._mTickInterval) + 1;
-            this._mPinTextFormatter = this;
-
-            this.RangeBarInit(context, attrs);
-        }
-
-        public RangeBar(Context context, IAttributeSet attrs, int defStyleAttr, int defStyleRes)
-            : base(context, attrs, defStyleAttr, defStyleRes)
         {
             this._mTickCount = (int) ((this._mTickEnd - this._mTickStart) / this._mTickInterval) + 1;
             this._mPinTextFormatter = this;
@@ -1247,8 +1235,10 @@ namespace Material_Range_Bar_Wrapper.Views
             {
                 this._mTickMap = new Dictionary<float, string>();
             }
-            var ta = context.ObtainStyledAttributes(attrs, Resource.Styleable.RangeBar, 0, 0);
 
+            var ta = attrs == null
+                ? context.ObtainStyledAttributes(Resource.Styleable.RangeBar)
+                : context.ObtainStyledAttributes(attrs, Resource.Styleable.RangeBar, 0, 0);
             try
             {
                 // Sets the values of the user-defined attributes based on the XML

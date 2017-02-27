@@ -13,7 +13,6 @@
 
 using Android.Content;
 using Android.Graphics;
-using Android.Graphics.Drawables;
 using Android.Util;
 using Android.Views;
 using Material_Range_Bar_Wrapper.Views;

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+  <Material_Range_Bar_Wrapper.Views.RangeBar
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rangebar"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    custom:tickStart="20"
+    custom:tickInterval="20"
+    custom:tickEnd="300"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"/>
+
+  <Material_Range_Bar_Wrapper.Views.RangeBar
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/notrangebar"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    custom:rangeBar="false"
+    custom:tickStart="20"
+    custom:tickInterval="20"
+    custom:tickEnd="300"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"/>
+
+</LinearLayout>

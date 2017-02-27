@@ -90,7 +90,7 @@ namespace Material_Range_Bar_Wrapper.Views
 
         private bool _pinsAreTemporary;
 
-        private bool _hasBeenPressed = false;
+        private bool _hasBeenPressed;
 
         #endregion
 
@@ -152,11 +152,6 @@ namespace Material_Range_Bar_Wrapper.Views
         }
 
         public PinView(Context context, IAttributeSet attrs, int defStyleAttr) : base(context, attrs, defStyleAttr)
-        {
-        }
-
-        public PinView(Context context, IAttributeSet attrs, int defStyleAttr, int defStyleRes)
-            : base(context, attrs, defStyleAttr, defStyleRes)
         {
         }
 
