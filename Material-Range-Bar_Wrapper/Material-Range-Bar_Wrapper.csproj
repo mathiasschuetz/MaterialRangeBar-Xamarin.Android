@@ -76,6 +76,9 @@
   <ItemGroup>
     <Compile Include="Bar.cs" />
     <Compile Include="ConnectingLine.cs" />
+    <Compile Include="Interfaces\IOnRangeBarChangeListener.cs" />
+    <Compile Include="Interfaces\IOnRangeBarTextListener.cs" />
+    <Compile Include="Interfaces\IPinTextFormatter.cs" />
     <Compile Include="Interfaces\IRangeBarFormatter.cs" />
     <Compile Include="Listener\PressPinListener.cs" />
     <Compile Include="Listener\ReleasePinListener.cs" />

@@ -55,7 +55,7 @@ namespace Material_Range_Bar_Wrapper.Views
     ///     been moved.
     /// </summary>
     // ReSharper disable once ClassNeverInstantiated.Global
-    public class RangeBar : View, RangeBar.IPinTextFormatter
+    public class RangeBar : View, IPinTextFormatter
     {
         #region fields
 
@@ -1676,33 +1676,6 @@ namespace Material_Range_Bar_Wrapper.Views
                 thumb.SetX(x);
                 this.Invalidate();
             }
-        }
-
-// Inner Classes ///////////////////////////////////////////////////////////
-
-        /// <summary>
-        ///     A callback that notifies clients when the RangeBar has changed. The
-        ///     listener will only be called when either thumb's index has changed - not
-        ///     for every movement of the thumb.
-        /// </summary>
-        public interface IOnRangeBarChangeListener
-        {
-            void OnRangeChangeListener(RangeBar rangeBar, int leftPinIndex,
-                int rightPinIndex, string leftPinValue, string rightPinValue);
-        }
-
-        public interface IPinTextFormatter
-        {
-            string GetText(string value);
-        }
-
-        /// <summary>
-        ///     @author robmunro
-        ///     A callback that allows getting pin text exernally
-        /// </summary>
-        public interface IOnRangeBarTextListener
-        {
-            string GetPinValue(RangeBar rangeBar, int tickIndex);
         }
 
         #endregion
