@@ -10,6 +10,7 @@ Added following fixes:<br/>
 - Fix moving pin out of range #46<br/>
 - Fixed permanent pins invisible after using setEnabled(false) issue#72 #88<br/>
 - Fix line clicking in seekbar sometimes doesn't work #47<br/>
+- Set default height/width relative to screen density #65<br/>
 <br/>
 Added callbacks:<br/>
 - Add new callback: OnThumbMoveCallback #71
