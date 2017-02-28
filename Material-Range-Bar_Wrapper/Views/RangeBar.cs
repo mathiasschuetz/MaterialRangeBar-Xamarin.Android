@@ -113,6 +113,7 @@ namespace Material_Range_Bar_Wrapper.Views
         private ConnectingLine _mConnectingLine;
         private IOnRangeBarChangeListener _mListener;
         private IOnRangeBarTextListener _mPinTextListener;
+        private IOnThumbMoveListener _onThumbMoveListener;
         private Dictionary<float, string> _mTickMap;
         private int _mLeftIndex;
         private int _mRightIndex;
@@ -661,11 +662,20 @@ namespace Material_Range_Bar_Wrapper.Views
             this._mPinTextListener = mPinTextListener;
         }
 
+        /// <summary>
+        /// Sets a listener to receive notifications of thumb moving.
+        /// </summary>
+        /// <param name="onThumbMoveListener">the thumb move notification listener; null to remove any existing
+        ///                                   listener</param>
+        public void SetThumbMoveListener(IOnThumbMoveListener onThumbMoveListener)
+        {
+            this._onThumbMoveListener = onThumbMoveListener;
+        }
+
 
         public void SetFormatter(IRangeBarFormatter formatter)
         {
             this._mLeftThumb?.SetFormatter(formatter);
-
             this._mRightThumb?.SetFormatter(formatter);
 
             this._mFormatter = formatter;
@@ -947,12 +957,30 @@ namespace Material_Range_Bar_Wrapper.Views
         }
 
         /// <summary>
+        /// Gets the start tick formatted with <see cref="IPinTextFormatter"/>
+        /// </summary>
+        /// <returns>the start tick.</returns>
+        public string GetTickStartFormatted()
+        {
+            return this._mPinTextFormatter.GetText(this._mTickStart);
+        }
+
+        /// <summary>
         ///     Gets the end tick.
         /// </summary>
         /// <returns>the end tick.</returns>
         public float GetTickEnd()
         {
             return this._mTickEnd;
+        }
+
+        /// <summary>
+        /// Gets the end tick formatted with <see cref="IPinTextFormatter"/>
+        /// </summary>
+        /// <returns>the end tick.</returns>
+        public string GetTickEndFormatted()
+        {
+            return this._mPinTextFormatter.GetText(this._mTickEnd);
         }
 
         /// <summary>
@@ -1600,6 +1628,10 @@ namespace Material_Range_Bar_Wrapper.Views
                 animator.Start();
             }
 
+            var tickIndex = this._mBar.GetNearestTickIndex(thumb);
+            var pinValue = this.GetPinValue(tickIndex);
+            this._onThumbMoveListener?.OnThumbMovingStart(this, thumb == this._mLeftThumb, pinValue);
+
             thumb.Press();
         }
 
@@ -1629,6 +1661,9 @@ namespace Material_Range_Bar_Wrapper.Views
             {
                 this.Invalidate();
             }
+
+            var pinValue = this.GetPinValue(tickIndex);
+            this._onThumbMoveListener?.OnThumbMovingStop(this, thumb == this._mLeftThumb, pinValue);
 
             thumb.Release();
         }

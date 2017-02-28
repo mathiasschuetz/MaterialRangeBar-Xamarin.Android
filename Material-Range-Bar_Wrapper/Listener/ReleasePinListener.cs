@@ -5,7 +5,7 @@ using Material_Range_Bar_Wrapper.Views;
 
 namespace Material_Range_Bar_Wrapper.Listener
 {
-    public class ReleasePinListener : Object, ValueAnimator.IAnimatorUpdateListener
+    internal class ReleasePinListener : Object, ValueAnimator.IAnimatorUpdateListener
     {
         #region fields
 

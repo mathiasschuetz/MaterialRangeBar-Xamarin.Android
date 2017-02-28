@@ -5,7 +5,7 @@ using Material_Range_Bar_Wrapper.Views;
 
 namespace Material_Range_Bar_Wrapper.Listener
 {
-    public class PressPinListener : Object, ValueAnimator.IAnimatorUpdateListener
+    internal class PressPinListener : Object, ValueAnimator.IAnimatorUpdateListener
     {
         #region fields
 
