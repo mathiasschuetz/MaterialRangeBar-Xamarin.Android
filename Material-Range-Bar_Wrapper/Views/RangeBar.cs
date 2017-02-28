@@ -70,7 +70,7 @@ namespace Material_Range_Bar_Wrapper.Views
         private const float DefaultTickHeightDp = 1;
         private const float DefaultPinPaddingDp = 16;
         public const float DefaultMinPinFontSp = 8;
-        public const float DefaultMaxPinFontSp = 24;
+        public const float DefaultMaxPinFontSp = 16;
         private const float DefaultBarWeightPx = 2;
         private static readonly Color DefaultBarColor = Color.LightGray;
         private static readonly Color DefaultTextColor = Color.White;
@@ -951,6 +951,17 @@ namespace Material_Range_Bar_Wrapper.Views
         {
             this._mExpandedPinRadius = pinRadius;
             this.CreatePins();
+        }
+
+        /// <summary>
+        /// Sets the font size in pins
+        /// </summary>
+        /// <param name="minSizePx"></param>
+        /// <param name="maxSizePx"></param>
+        public void SetFontSize(float minSizePx, float maxSizePx)
+        {
+            this._mMinPinFont = minSizePx;
+            this._mMaxPinFont = maxSizePx;
         }
 
         /// <summary>
