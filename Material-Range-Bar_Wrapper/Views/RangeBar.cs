@@ -104,8 +104,9 @@ namespace Material_Range_Bar_Wrapper.Views
         // setTickCount only resets indices before a thumb has been pressed or a
         // setThumbIndices() is called, to correspond with intended usage
         private bool _mFirstSetTickCount = true;
-        private const int MDefaultWidth = 500;
-        private const int MDefaultHeight = 150;
+        private DisplayMetrics _displayMetrics;
+        private int _mDefaultWidth;
+        private int _mDefaultHeight;
         private int _mTickCount;
         private PinView _mLeftThumb;
         private PinView _mRightThumb;
@@ -141,30 +142,35 @@ namespace Material_Range_Bar_Wrapper.Views
 
         public RangeBar(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
         {
-            this._mTickCount = (int) ((this._mTickEnd - this._mTickStart) / this._mTickInterval) + 1;
-            this._mPinTextFormatter = this;
+            this.DefaultValues(null, null);
         }
 
         public RangeBar(Context context) : base(context)
         {
-            this._mTickCount = (int) ((this._mTickEnd - this._mTickStart) / this._mTickInterval) + 1;
-            this._mPinTextFormatter = this;
+            this.DefaultValues(null, null);
         }
 
         public RangeBar(Context context, IAttributeSet attrs) : base(context, attrs)
         {
-            this._mTickCount = (int) ((this._mTickEnd - this._mTickStart) / this._mTickInterval) + 1;
-            this._mPinTextFormatter = this;
-
-            this.RangeBarInit(context, attrs);
+            this.DefaultValues(context, attrs);
         }
 
         public RangeBar(Context context, IAttributeSet attrs, int defStyleAttr) : base(context, attrs, defStyleAttr)
         {
-            this._mTickCount = (int) ((this._mTickEnd - this._mTickStart) / this._mTickInterval) + 1;
+            this.DefaultValues(context, attrs);
+        }
+
+        private void DefaultValues(Context context, IAttributeSet attrs)
+        {
+            this._mTickCount = (int)((this._mTickEnd - this._mTickStart) / this._mTickInterval) + 1;
             this._mPinTextFormatter = this;
 
-            this.RangeBarInit(context, attrs);
+            this._displayMetrics = this.Context.Resources.DisplayMetrics;
+            this._mDefaultWidth = (int)TypedValue.ApplyDimension(ComplexUnitType.Dip, 250, this._displayMetrics);
+            this._mDefaultHeight = (int)TypedValue.ApplyDimension(ComplexUnitType.Dip, 75, this._displayMetrics);
+
+            if (context != null && attrs != null)
+                this.RangeBarInit(context, attrs);
         }
 
         #endregion
@@ -430,13 +436,13 @@ namespace Material_Range_Bar_Wrapper.Views
             }
             else
             {
-                width = MDefaultWidth;
+                width = this._mDefaultWidth;
             }
 
             // The RangeBar height should be as small as possible.
             if (measureHeightMode == Android.Views.MeasureSpecMode.AtMost)
             {
-                height = Math.Min(MDefaultHeight, measureHeight);
+                height = Math.Min(this._mDefaultHeight, measureHeight);
             }
             else if (measureHeightMode == Android.Views.MeasureSpecMode.Exactly)
             {
@@ -444,7 +450,7 @@ namespace Material_Range_Bar_Wrapper.Views
             }
             else
             {
-                height = MDefaultHeight;
+                height = this._mDefaultHeight;
             }
 
             this.SetMeasuredDimension(width, height);
