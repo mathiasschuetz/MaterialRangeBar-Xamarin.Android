@@ -11,6 +11,7 @@
  * governing permissions and limitations under the License. 
  */
 
+using System;
 using Android.Content;
 using Android.Graphics;
 using Android.Util;
@@ -65,7 +66,14 @@ namespace Material_Range_Bar_Wrapper
         /// <param name="rightThumb">the right thumb</param>
         public void Draw(Canvas canvas, PinView leftThumb, PinView rightThumb)
         {
-            canvas.DrawLine(leftThumb.GetX(), this._y, rightThumb.GetX(), this._y, this._paint);
+            try
+            {
+                canvas.DrawLine(leftThumb.GetX(), this._y, rightThumb.GetX(), this._y, this._paint);
+            }
+            catch (NullReferenceException nullReferenceException)
+            {
+                Log.Error(nameof(ConnectingLine), $"{nameof(Draw)}: {nullReferenceException.Message}");
+            }
         }
 
         /// <summary>
@@ -76,7 +84,14 @@ namespace Material_Range_Bar_Wrapper
         /// <param name="rightThumb">the left margin</param>
         public void Draw(Canvas canvas, float leftMargin, PinView rightThumb)
         {
-            canvas.DrawLine(leftMargin, this._y, rightThumb.GetX(), this._y, this._paint);
+            try
+            {
+                canvas.DrawLine(leftMargin, this._y, rightThumb.GetX(), this._y, this._paint);
+            }
+            catch (NullReferenceException nullReferenceException)
+            {
+                Log.Error(nameof(ConnectingLine), $"{nameof(Draw)}: {nullReferenceException.Message}");
+            }
         }
 
         #endregion
